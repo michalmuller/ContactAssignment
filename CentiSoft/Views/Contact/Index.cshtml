@@ -8,25 +8,32 @@
 <h2>Index</h2>
 
 <table class="table table-striped table-bordered">
-<thead>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>RoomNumber</th>
-        <th>Actions</th>
-    </tr>
-</thead>
-<tbody>
-    @foreach (var contactvm in Model.contacts)
-    {
+    <thead>
         <tr>
-            <td>@contactvm.Id</td>
-            <td>@contactvm.Name</td>
-            <td>@contactvm.Position</td>
-            <td>@contactvm.Company</td>
-            <td>@contactvm.PhoneNumber</td>            
+            <th>Id</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Company</th>
+            <th>Phone number</th>
+            <th>Actions</th>
         </tr>
-    }
-</tbody>
+    </thead>
+    <tbody>
+        @foreach (var contactvm in Model.contacts)
+        {
+            <tr>
+                <td>@contactvm.Id</td>
+                <td>@contactvm.Name</td>
+                <td>@contactvm.Position</td>
+                <td>@contactvm.Company</td>
+                <td>@contactvm.PhoneNumber</td>
+                <td>
+                    <a href="/Contact/Show/@contactvm.Id" class="btn btn-primary">Details</a>
+                    <a href="/Contact/Edit/@contactvm.Id" class="btn btn-warning">Edit</a>
+                    <a href="/Contact/Delete/@contactvm.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
