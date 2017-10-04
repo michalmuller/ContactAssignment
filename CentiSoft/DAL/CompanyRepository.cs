@@ -42,5 +42,37 @@ namespace CentiSoft.DAL
             return companies;
         }
 
+        public Company LoadCompany(int Id)
+        {
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = "Server=localhost;Database=PWECentiSoft;Integrated Security=SSPI";
+            Company company = new Company();
+            try
+            {
+                connection.Open();
+                SqlCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM Company Where Id=" + Id;
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Company tempCompany = new Company();
+                    tempCompany.Id = reader.GetInt32(0);
+                    tempCompany.Name = reader.GetString(1);
+                    tempCompany.Description = reader.GetString(2);
+                    tempCompany.PhoneNumber = reader.GetString(3);
+                    company = tempCompany;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return company;
+        }
+
     }
 }

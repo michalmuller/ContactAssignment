@@ -10,7 +10,7 @@ namespace CentiSoft.Controllers
 {
     public class CompanyController : Controller
     {
-        // GET: Company
+        // GET: List of Companies
         public ActionResult Index()
         {
             CompanyRepository companyRepository = new CompanyRepository();
@@ -28,6 +28,22 @@ namespace CentiSoft.Controllers
             CompanyVM model = new CompanyVM();
             model.companies = companyVMs;
             return View(model);
+        }
+
+        // GET: Single Company
+        public ActionResult Show(int id)
+        {
+            CompanyRepository companyRepository = new CompanyRepository();
+            Company company = companyRepository.LoadCompany(id);
+
+            CompanyVM model = new CompanyVM();
+            model.Id = company.Id;
+            model.Name = company.Name;
+            model.Description = company.Description;
+            model.PhoneNumber = company.PhoneNumber;
+
+            return View(model);
+
         }
     }
 }
