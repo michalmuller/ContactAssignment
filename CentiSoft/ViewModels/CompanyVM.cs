@@ -5,14 +5,13 @@ using System.Web;
 
 namespace CentiSoft.Models
 {
-    public class ContactVM
+    public class CompanyVM
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Company { get; set; }
-        public string Position { get; set; }
+        public string Description { get; set; }
         public string PhoneNumber { get; set; }
 
-        public List<ContactVM> contacts { get; set; }        
+        public List<CompanyVM> companies { get; set; }
     }
 }

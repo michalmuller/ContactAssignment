@@ -1,0 +1,37 @@
+﻿@model CentiSoft.Models.CompanyVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List of Companies</h2>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Phone number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var companyvm in Model.companies)
+        {
+            <tr>
+                <td>@companyvm.Id</td>
+                <td>@companyvm.Name</td>
+                <td>@companyvm.Description</td>
+                <td>@companyvm.PhoneNumber</td>
+                <td>
+                    <a href="/Contact/Show/@companyvm.Id" class="btn btn-primary">Details</a>
+                    <a href="/Contact/Edit/@companyvm.Id" class="btn btn-warning">Edit</a>
+                    <a href="/Contact/Delete/@companyvm.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
