@@ -31,6 +31,7 @@ namespace CentiSoft.Controllers
             return View(model);
         }
 
+       
         // GET EDIT PAGE
         public ActionResult Edit(int id)
         {
@@ -77,7 +78,7 @@ namespace CentiSoft.Controllers
             contactRepository.EditContact(contact);
 
             return RedirectToAction("Index");
-        }
+        }        
 
         public ActionResult Create()
         {
@@ -101,10 +102,10 @@ namespace CentiSoft.Controllers
 
              
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int Id)
         {
             ContactRepository contactRepository = new ContactRepository();
-            contactRepository.DeleteContact(id);
+            contactRepository.DeleteContact(Id);
             return RedirectToAction("Index");
 
         }
