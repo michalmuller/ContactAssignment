@@ -35,6 +35,7 @@ namespace CentiSoft.DAL
             }
             catch(Exception ex)
             {
+                // Catch an exception
                 Console.WriteLine(ex);
             }
             finally
